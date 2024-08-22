@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sanity from '@sanity/astro';
 import netlify from '@astrojs/netlify';
-
 const sanityConfig = {
   projectId: 'lgd6f46p',
   dataset: 'production',

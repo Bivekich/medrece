@@ -1,0 +1,58 @@
+---
+import { sanityClient } from "sanity:client";
+
+// Запрос данных о Медресе
+const query = `*[_type == "aboutMedrece"][0]{
+  title,
+  image{
+    asset->{
+      _id,
+      url
+    }
+  },
+  paragraph1,
+  paragraph2,
+  paragraph3,
+  paragraph4,
+  paragraph5,
+  paragraph6
+}`;
+
+const schoolInfo = await sanityClient.fetch(query);
+---
+
+<section class="flex flex-col md:flex-row items-stretch gap-8 p-6">
+  <!-- Блок с изображением -->
+  <div class="relative w-full md:w-1/2">
+    <img
+      src={schoolInfo?.image?.asset?.url || '/images/placeholder.jpg'}
+      alt={schoolInfo?.title || 'О школе'}
+      class="w-full h-full object-cover rounded-lg"
+    />
+  </div>
+
+  <!-- Текстовый блок справа -->
+  <div class="w-full md:w-1/2 flex flex-col justify-center">
+    <h2 class="text-6xl text-[#000C5F] font-bold mb-4" style="font-family: 'Days One', sans-serif;">
+      {schoolInfo?.title || 'О Медресе'}
+    </h2>
+    <p class="text-base font-medium font-[Geologica] mt-4">
+      {schoolInfo?.paragraph1}
+    </p>
+    <p class="text-base font-medium font-[Geologica] mt-4">
+      {schoolInfo?.paragraph2}
+    </p>
+    <p class="text-base font-medium font-[Geologica] mt-4">
+      {schoolInfo?.paragraph3}
+    </p>
+    <p class="text-base font-medium font-[Geologica] mt-4">
+      {schoolInfo?.paragraph4}
+    </p>
+    <p class="text-base font-medium font-[Geologica] mt-4">
+      {schoolInfo?.paragraph5}
+    </p>
+    <p class="text-base font-medium font-[Geologica] mt-4">
+      {schoolInfo?.paragraph6}
+    </p>
+  </div>
+</section>
