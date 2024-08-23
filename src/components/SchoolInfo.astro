@@ -9,11 +9,7 @@ const query = `*[_type == "schoolInfo"][0]{
     }
   },
   quote,
-  author,
-  documents[]->{
-    title,
-    "fileUrl": file.asset->url
-  }
+  author
 }`;
 
 const getDocumentsQuery = `*[_type == "schoolDocument"]{
@@ -50,19 +46,18 @@ const schoolInfo = await sanityClient.fetch(query);
         </div>
       </h3>
 
-      <!-- Скрытый список документов, отображающийся при наведении на текст -->
-      <div class="absolute left-0 mt-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity bg-white text-[#000C5F] rounded-lg shadow-lg p-4">
+      <!-- Скрытый список документов, отображающийся при наведении на текст, раскрывается наверх -->
+      <div class="absolute left-0 bottom-0 mb-12 z-10 opacity-0 group-hover:opacity-100 transition-opacity bg-white text-[#000C5F] rounded-lg shadow-lg p-4">
         <ul class="space-y-2">
           {documents.map(doc => (
             <li>
               <a
-                href={doc.fileUrl}
-                download
-                class="flex items-center text-blue-600 hover:underline"
-              >
-                <span class="material-icons mr-2">insert_drive_file</span>
-                {doc.title}
-              </a>
+  href={`/preview?fileUrl=${encodeURIComponent(doc.fileUrl)}&title=${encodeURIComponent(doc.title)}`}
+  class="flex items-center text-blue-600 hover:underline"
+>
+  <span class="material-icons mr-2">insert_drive_file</span>
+  {doc.title}
+</a>
             </li>
           ))}
         </ul>

@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+const fileUrl = Astro.url.searchParams.get('fileUrl');
+const title = Astro.url.searchParams.get('title');
+---
+
+<Layout>
+  <div class="p-6 font-[Geologica]">
+    <h1 class="text-2xl font-bold mb-4">{title}</h1>
+    <iframe src={fileUrl} class="w-full h-screen border-2 border-gray-300" title={title}></iframe>
+    <a href={fileUrl} download class="mt-4 inline-block text-blue-600 hover:underline">
+      Скачать файл
+    </a>
+  </div>
+</Layout>
