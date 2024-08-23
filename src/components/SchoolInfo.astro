@@ -9,16 +9,26 @@ const query = `*[_type == "schoolInfo"][0]{
     }
   },
   quote,
-  author
+  author,
+  documents[]->{
+    title,
+    "fileUrl": file.asset->url
+  }
 }`;
 
+const getDocumentsQuery = `*[_type == "schoolDocument"]{
+  title,
+  "fileUrl": file.asset->url
+}`;
+
+const documents = await sanityClient.fetch(getDocumentsQuery);
 const schoolInfo = await sanityClient.fetch(query);
 ---
 
 <div class="flex flex-col md:flex-row items-stretch gap-8 p-6 font-[Geologica]">
   <!-- Левый блок -->
-  <div class="w-full md:w-1/3 bg-gradient-to-r from-[#000C5F] to-[#02138A] p-6 rounded-lg shadow-lg relative">
-    <h3 class="text-lg font-semibold text-white mb-4 relative group cursor-pointer flex items-center">
+  <div class="w-full md:w-1/3 bg-gradient-to-r from-[#000C5F] to-[#02138A] p-6 rounded-lg shadow-lg relative group">
+    <h3 class="text-lg font-semibold text-white mb-4 flex items-center cursor-pointer">
       <!-- Стрелка слева от текста заголовка -->
       <div class="mr-4 flex items-center">
         <svg
@@ -39,8 +49,26 @@ const schoolInfo = await sanityClient.fetch(query);
       </div>
     </h3>
 
+    <!-- Скрытый список документов, отображающийся при наведении -->
+    <div class="hidden group-hover:block absolute bg-white text-[#000C5F] rounded-lg shadow-lg p-4 left-0 mt-2 z-10">
+      <ul class="space-y-2">
+        {documents.map(doc => (
+          <li>
+            <a
+              href={doc.fileUrl}
+              download
+              class="flex items-center text-blue-600 hover:underline"
+            >
+              <span class="material-icons mr-2">insert_drive_file</span>
+              {doc.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
     <div class="space-y-4 mt-6">
-      <a href="#" class="flex items-center text-white bg-blue-800 rounded-lg p-3 border border-blue-500 hover:bg-blue-700 transition">
+      <a href="/abiturient" class="flex items-center text-white bg-blue-800 rounded-lg p-3 border border-blue-500 hover:bg-blue-700 transition">
         <span class="material-icons mr-2">school</span> Абитуриенту
       </a>
       <a href="#" class="flex items-center text-white bg-blue-800 rounded-lg p-3 border border-blue-500 hover:bg-blue-700 transition">
@@ -52,7 +80,7 @@ const schoolInfo = await sanityClient.fetch(query);
       <a href="#" class="flex items-center text-white bg-blue-800 rounded-lg p-3 border border-blue-500 hover:bg-blue-700 transition">
         <span class="material-icons mr-2">photo_camera</span> Фото и видео
       </a>
-      <a href="#" class="flex items-center text-white bg-blue-800 rounded-lg p-3 border border-blue-500 hover:bg-blue-700 transition">
+      <a href="/mediaInfo" class="flex items-center text-white bg-blue-800 rounded-lg p-3 border border-blue-500 hover:bg-blue-700 transition">
         <span class="material-icons mr-2">phone</span> Контакты
       </a>
     </div>
