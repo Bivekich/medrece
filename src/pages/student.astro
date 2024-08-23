@@ -1,0 +1,87 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { sanityClient } from "sanity:client";
+
+const query = `*[_type == "studentPage"][0]{
+  mainTitle,
+  academicTitle,
+  academicText,
+  "academicImageUrl": academicImage.asset->url,
+  importantDatesTitle,
+  importantDates[]{
+    date,
+    event
+  },
+  rulesTitle,
+  rulesText,
+  scheduleFilesTitle,
+  scheduleFiles[]{
+    asset->{
+      url,
+      originalFilename
+    }
+  }
+}`;
+
+const studentData = await sanityClient.fetch(query);
+---
+
+<Layout>
+  <section class="p-6 font-[Geologica]">
+    <!-- Основной заголовок -->
+    <h1 class="text-4xl md:text-6xl font-bold text-center text-[#000C5F] mb-8" style="font-family: 'Days One', sans-serif;">
+      {studentData.mainTitle}
+    </h1>
+
+    <!-- Академическая информация -->
+    <div class="flex flex-col md:flex-row gap-8 mb-16">
+      <div class="w-full md:w-1/2">
+        <h2 class="text-2xl md:text-4xl font-bold text-[#000C5F] mb-4" style="font-family: 'Days One', sans-serif;">
+          {studentData.academicTitle}
+        </h2>
+        <p class="text-lg md:text-xl text-gray-700">{studentData.academicText}</p>
+      </div>
+      <div class="w-full md:w-1/2 flex flex-col items-center">
+        <img src={studentData.academicImageUrl} alt="Академическая информация" class="rounded-lg shadow-lg mb-4">
+      </div>
+    </div>
+
+    <!-- Важные даты -->
+    <div class="mb-16">
+      <h2 class="text-2xl md:text-4xl font-bold text-[#000C5F] mb-4 text-center" style="font-family: 'Days One', sans-serif;">
+        {studentData.importantDatesTitle}
+      </h2>
+      <ul class="list-disc pl-6 text-lg md:text-xl text-gray-700">
+        {studentData.importantDates.map((date) => (
+          <li>
+            <span class="font-semibold">{new Date(date.date).toLocaleDateString()}:</span> {date.event}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Правила -->
+    <div class="mb-16">
+      <h2 class="text-2xl md:text-4xl font-bold text-[#000C5F] mb-4 text-center" style="font-family: 'Days One', sans-serif;">
+        {studentData.rulesTitle}
+      </h2>
+      <p class="text-lg md:text-xl text-gray-700">{studentData.rulesText}</p>
+    </div>
+
+    <!-- Файлы расписания -->
+    <div class="mb-16">
+      <h2 class="text-2xl md:text-4xl font-bold text-[#000C5F] mb-4 text-center" style="font-family: 'Days One', sans-serif;">
+        {studentData.scheduleFilesTitle}
+      </h2>
+      <ul class="list-disc pl-6 text-lg md:text-xl text-gray-700">
+        {studentData.scheduleFiles.map((file) => (
+          <li>
+            <a href={file.asset.url} class="text-blue-500 underline" download>
+              {file.asset.originalFilename}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Layout>

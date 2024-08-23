@@ -1,34 +1,21 @@
 <header class="bg-[#000C5F] text-white font-[Geologica]">
   <div class="max-w-screen-xl mx-auto flex items-center justify-between p-4">
     <!-- Лого и название -->
-    <div class="flex items-center">
-      <img src="/images/logo.png" alt="Лого Медресе" class="h-10 mr-3" />
-      <div class="text-[16px] font-extralight leading-tight">
-        <h1>Официальный сайт Медресе</h1>
-        <h1>Карачаево-Черкесской Республики</h1>
+    <a href="/">
+      <div class="flex items-center">
+        <img src="/images/logo.png" alt="Лого Медресе" class="h-10 mr-3" />
+        <div class="text-[16px] font-extralight leading-tight">
+          <h1>Официальный сайт Медресе</h1>
+          <h1>Карачаево-Черкесской Республики</h1>
+        </div>
       </div>
-    </div>
+    </a>
 
     <!-- Основные ссылки (десктоп) -->
     <nav class="hidden lg:flex space-x-8">
-      <a
-        href="/about"
-        class="relative px-4 py-2 hover:text-[#000C5F] transition-colors duration-300 rounded-full hover:bg-white"
-      >
-        О НАС
-      </a>
-      <a
-        href="/dumkchr"
-        class="relative px-4 py-2 hover:text-[#000C5F] transition-colors duration-300 rounded-full hover:bg-white"
-      >
-        ДУМ КЧР
-      </a>
-      <a
-        href="/mediaInfo"
-        class="relative px-4 py-2 hover:text-[#000C5F] transition-colors duration-300 rounded-full hover:bg-white"
-      >
-        ДЛЯ СМИ
-      </a>
+      <a href="/about" class="relative px-4 py-2 hover:text-[#000C5F] transition-colors duration-300 rounded-full hover:bg-white">О НАС</a>
+      <a href="/dumkchr" class="relative px-4 py-2 hover:text-[#000C5F] transition-colors duration-300 rounded-full hover:bg-white">ДУМ КЧР</a>
+      <a href="/mediaInfo" class="relative px-4 py-2 hover:text-[#000C5F] transition-colors duration-300 rounded-full hover:bg-white">ДЛЯ СМИ</a>
     </nav>
 
     <!-- Телефон, иконки и кнопка -->
@@ -36,45 +23,23 @@
       <div class="flex items-center space-x-4">
         <span>+7 (878) 228-42-36</span>
         <div class="flex space-x-2">
-          <a
-            href="#"
-            class="p-2 rounded-full bg-[#D9D9D9] hover:bg-[#ffffff] transition-colors duration-300"
-          >
-            <img
-              src="/icons/telegram-icon.svg"
-              alt="Telegram"
-              class="h-5 w-5"
-            />
+          <a href="#" class="p-2 rounded-full bg-[#D9D9D9] hover:bg-[#ffffff] transition-colors duration-300">
+            <img src="/icons/telegram-icon.svg" alt="Telegram" class="h-5 w-5" />
           </a>
-          <a
-            href="/mediaInfo"
-            class="p-2 rounded-full bg-[#D9D9D9] hover:bg-[#ffffff] transition-colors duration-300"
-          >
+          <a href="/mediaInfo" class="p-2 rounded-full bg-[#D9D9D9] hover:bg-[#ffffff] transition-colors duration-300">
             <img src="/icons/youtube-icon.svg" alt="YouTube" class="h-5 w-5" />
           </a>
         </div>
       </div>
-      <button
-        class="border border-white text-white py-2 px-4 rounded-full hover:bg-white hover:text-[#000C5F] transition-colors"
-      >
+      <button id="fontSizeButton" class="border border-white text-white py-2 px-4 rounded-full hover:bg-white hover:text-[#000C5F] transition-colors">
         ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ
       </button>
     </div>
 
     <!-- Мобильное меню кнопка -->
     <button id="menuButton" class="lg:hidden text-white focus:outline-none">
-      <svg
-        class="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16m-7 6h7"></path>
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
       </svg>
     </button>
   </div>
@@ -83,60 +48,39 @@
   <div id="mobileMenu" class="lg:hidden hidden">
     <div class="flex flex-col items-center p-4 bg-[#000C5F] space-y-4">
       <nav class="flex flex-col space-y-4 text-center">
-        <a
-          href="/about"
-          class="relative px-4 py-2 hover:text-[#000C5F] transition-colors duration-300 rounded-full hover:bg-white"
-        >
-          О НАС
-        </a>
-        <a
-          href="/dumkchr"
-          class="relative px-4 py-2 hover:text-[#000C5F] transition-colors duration-300 rounded-full hover:bg-white"
-        >
-          ДУМ КЧР
-        </a>
-        <a
-          href="/mediaInfo"
-          class="relative px-4 py-2 hover:text-[#000C5F] transition-colors duration-300 rounded-full hover:bg-white"
-        >
-          ДЛЯ СМИ
-        </a>
+        <a href="/about" class="relative px-4 py-2 hover:text-[#000C5F] transition-colors duration-300 rounded-full hover:bg-white">О НАС</a>
+        <a href="/dumkchr" class="relative px-4 py-2 hover:text-[#000C5F] transition-colors duration-300 rounded-full hover:bg-white">ДУМ КЧР</a>
+        <a href="/mediaInfo" class="relative px-4 py-2 hover:text-[#000C5F] transition-colors duration-300 rounded-full hover:bg-white">ДЛЯ СМИ</a>
       </nav>
       <div class="flex items-center space-x-4">
         <span>+7 (878) 228-42-36</span>
         <div class="flex space-x-2">
-          <a
-            href="#"
-            class="p-2 rounded-full bg-[#D9D9D9] hover:bg-[#ffffff] transition-colors duration-300"
-          >
-            <img
-              src="/icons/telegram-icon.svg"
-              alt="Telegram"
-              class="h-5 w-5"
-            />
+          <a href="#" class="p-2 rounded-full bg-[#D9D9D9] hover:bg-[#ffffff] transition-colors duration-300">
+            <img src="/icons/telegram-icon.svg" alt="Telegram" class="h-5 w-5" />
           </a>
-          <a
-            href="#"
-            class="p-2 rounded-full bg-[#D9D9D9] hover:bg-[#ffffff] transition-colors duration-300"
-          >
+          <a href="#" class="p-2 rounded-full bg-[#D9D9D9] hover:bg-[#ffffff] transition-colors duration-300">
             <img src="/icons/youtube-icon.svg" alt="YouTube" class="h-5 w-5" />
           </a>
         </div>
       </div>
-      <button
-        class="border border-white text-white py-2 px-4 rounded-full hover:bg-white hover:text-[#000C5F] transition-colors"
-      >
+      <button id="fontSizeButtonMobile" class="border border-white text-white py-2 px-4 rounded-full hover:bg-white hover:text-[#000C5F] transition-colors">
         ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ
       </button>
     </div>
   </div>
-
-  <script>
-    document
-      .getElementById("menuButton")
-      .addEventListener("click", function () {
-        const mobileMenu = document.getElementById("mobileMenu");
-        mobileMenu.classList.toggle("hidden");
-      });
-  </script>
 </header>
+
+<script>
+  document.getElementById('menuButton').addEventListener('click', function () {
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  document.getElementById('fontSizeButton').addEventListener('click', function () {
+    document.body.classList.toggle('increase-font-size');
+  });
+
+  document.getElementById('fontSizeButtonMobile').addEventListener('click', function () {
+    document.body.classList.toggle('increase-font-size');
+  });
+</script>

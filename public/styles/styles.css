@@ -1,0 +1,10 @@
+/* styles.css */
+
+/* Увеличенный шрифт для версии для слабовидящих */
+.increase-font-size {
+  font-size: 1.05em; /* Увеличивает шрифт на 5% */
+}
+
+body.increase-font-size * {
+  font-size: 1.05em; /* Увеличивает шрифт на 5% */
+}
