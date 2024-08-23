@@ -1,0 +1,37 @@
+---
+// Импорт Layout для использования общей структуры страницы
+import Layout from "../layouts/Layout.astro";
+// Подключение клиента для взаимодействия с Sanity
+import { sanityClient } from "sanity:client";
+
+// Запрос данных для страницы ДУМ КЧР
+const dumKchrQuery = `*[_type == "dumKchr"]{
+  title,
+  description,
+  photo {
+    asset -> { url }
+  }
+}[0]`
+
+// Получение данных с Sanity
+const dumKchrData = await sanityClient.fetch(dumKchrQuery);
+---
+
+<Layout>
+  <section class="flex flex-col md:flex-row items-start gap-8 p-4 md:p-8">
+    <!-- Левая часть: Фотография -->
+    <div class="w-full md:w-1/2">
+      <img src={dumKchrData.photo.asset.url} alt="Фотография ДУМ КЧР" class="rounded-lg shadow-lg w-full h-auto">
+    </div>
+
+    <!-- Правая часть: Заголовок и Описание -->
+    <div class="w-full md:w-1/2 flex flex-col justify-start">
+      <h1 class="text-4xl md:text-8xl font-bold text-[#000C5F] mb-4" style="font-family: 'Days One', sans-serif;">
+        {dumKchrData.title}
+      </h1>
+      <p class="text-base md:text-lg font-medium font-[Geologica] text-justify">
+        {dumKchrData.description}
+      </p>
+    </div>
+  </section>
+</Layout>
