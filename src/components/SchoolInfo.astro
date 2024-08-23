@@ -17,6 +17,7 @@ const getDocumentsQuery = `*[_type == "schoolDocument"]{
   documentType,
   "fileUrl": file.asset->url,
   files[] {
+    fileName,
     "fileUrl": file.asset->url,
     title
   },

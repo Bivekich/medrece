@@ -48,6 +48,11 @@ export default {
               title: 'Название файла',
               type: 'string',
             },
+            {
+              name: 'fileName',
+              title: 'Фактическое имя файла',
+              type: 'string',
+            },
           ],
         },
       ],

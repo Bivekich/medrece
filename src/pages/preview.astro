@@ -26,13 +26,16 @@ const content = Astro.url.searchParams.get('content');
         {files.map((file) => (
           <li>
             {file.fileUrl && (
-              <h2 class="font-[Geologica] text-2xl">{file.title}</h2>
-              <a
-                href={file.fileUrl}
-                class="text-blue-600 hover:underline"
-              >
-                {file.title || 'Без названия'}
-              </a>
+              <>
+                <h2 class="font-[Geologica] text-2xl">{file.title}</h2>
+                <a
+                  href={file.fileUrl}
+                  download
+                  class="text-blue-600 hover:underline"
+                >
+                  Скачать файл ({file.fileName})
+                </a>
+              </>
             )}
           </li>
         ))}
