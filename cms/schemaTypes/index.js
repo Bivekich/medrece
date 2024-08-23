@@ -3,6 +3,7 @@ import aboutMedrece from './aboutMedrece'
 import banner from './banner'
 import directorInfo from './directorInfo'
 import dumKchr from './dumKchr'
+import footerOrganizationInfo from './footerOrganizationInfo'
 import mediaInfo from './mediaInfo'
 import news from './news'
 import photoVideo from './photoVideo'
@@ -26,4 +27,5 @@ export const schemaTypes = [
   teacher,
   dumKchr,
   mediaInfo,
+  footerOrganizationInfo,
 ]

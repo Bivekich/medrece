@@ -1,3 +1,13 @@
+---
+import { sanityClient } from "sanity:client";
+
+const organizationInfoQuery = `*[_type == "footerOrganizationInfo"][0]{
+  organizationInfo
+}`;
+
+const footerOrganizationInfo = await sanityClient.fetch(organizationInfoQuery);
+---
+
 <footer class="bg-[#000C5F] text-white py-8">
   <div class="container mx-auto px-4 flex flex-col lg:flex-row justify-between gap-8">
     <!-- Левая часть -->
@@ -29,14 +39,7 @@
         </li>
       </ul>
       <p class="mt-4 text-xs">
-        Религиозная организация: Исламская Духовная профессиональная образовательная организация "Медрессе-Интернат КЧР" <br />
-        ИНН: 0916007124 КПП: 092001001 <br />
-        Р/Сч. № 40703810360310008059 <br />
-        СТАВРОПОЛЬСКОЕ ОТДЕЛЕНИЕ №5230 ПАО СБЕРБАНК <br />
-        БИК 040702615 <br />
-        К/Сч. №30101810907020000615 <br />
-        Адрес: 368380, КЧР, Малокарачаевский район, с. Учкекен,пер. Первомайский, д.13А <br />
-        Директор - Эркенов Магомед Сагитович
+        {footerOrganizationInfo.organizationInfo}
       </p>
     </div>
 
