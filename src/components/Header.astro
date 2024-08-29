@@ -12,7 +12,7 @@
     </a>
 
     <!-- Основные ссылки (десктоп) -->
-    <nav class="hidden lg:flex space-x-8">
+    <nav class="hidden lg:flex items-center space-x-8">
       <a href="/about" class="relative px-4 py-2 hover:text-[#000C5F] transition-colors duration-300 rounded-full hover:bg-white">О НАС</a>
       <a href="/dumkchr" class="relative px-4 py-2 hover:text-[#000C5F] transition-colors duration-300 rounded-full hover:bg-white">ДУМ КЧР</a>
       <a href="/mediaInfo" class="relative px-4 py-2 hover:text-[#000C5F] transition-colors duration-300 rounded-full hover:bg-white">ДЛЯ СМИ</a>
@@ -70,12 +70,22 @@
   </div>
 </header>
 
+<!-- Большая строка поиска под шапкой -->
+<div id="searchBarContainer" class="bg-[#02138A] p-4">
+  <div class="max-w-screen-xl mx-auto flex items-center space-x-4">
+    <img src="/icons/search.svg" alt="Поиск" class="h-8 w-8">
+    <input type="text" placeholder="Поиск по сайту..." class="bg-white text-black w-full px-4 py-3 rounded-full focus:outline-none text-lg" />
+  </div>
+</div>
+
 <script>
+  // Меню для мобильных устройств
   document.getElementById('menuButton').addEventListener('click', function () {
     const mobileMenu = document.getElementById('mobileMenu');
     mobileMenu.classList.toggle('hidden');
   });
 
+  // Включение версии для слабовидящих
   document.getElementById('fontSizeButton').addEventListener('click', function () {
     document.body.classList.toggle('increase-font-size');
   });

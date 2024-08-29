@@ -26,5 +26,16 @@ export default {
       title: 'Краткое описание',
       type: 'text',
     },
+    {
+      name: 'content',
+      title: 'Полное описание',
+      type: 'text',
+    },
+    {
+      name: 'additionalImages',
+      title: 'Дополнительные изображения',
+      type: 'array',
+      of: [{type: 'image'}],
+    },
   ],
 }

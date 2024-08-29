@@ -4,6 +4,13 @@ export default {
   type: 'document',
   fields: [
     {
+      name: 'order',
+      title: 'Порядок отображения',
+      type: 'number',
+      description: 'Чем меньше число, тем выше документ будет отображаться.',
+      validation: (Rule) => Rule.min(0),
+    },
+    {
       name: 'title',
       title: 'Заголовок',
       type: 'string',

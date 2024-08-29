@@ -22,13 +22,16 @@ const photoVideoItems = await sanityClient.fetch(query);
       {photoVideoItems.map((item) => (
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
           {item.type === 'photo' && item.mediaUrl && (
-            <img src={item.mediaUrl} alt={item.title} class="w-full h-48 object-cover" />
+            <img src={item.mediaUrl} alt={item.title} class="w-full h-64 object-contain" />
           )}
           {item.type === 'video' && item.videoUrl && (
-            <div class="relative pb-9/16">
-              <iframe width="560" height="315"
+            <div class="relative">
+              <iframe 
+                class="w-full h-auto aspect-video" 
                 src={item.videoUrl}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen
                 title={item.title}
               ></iframe>
             </div>
