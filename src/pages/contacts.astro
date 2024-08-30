@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { sanityClient } from "sanity:client";
+
+// Запрос данных о контактах и адресах из Sanity
+const getMediaInfoQuery = `*[_type == "mediaInfo"]{
+  phoneNumbers[] {
+    number,
+    description
+  },
+  email,
+  legalAddress,
+  addressText,
+  image { asset-> { url } }
+}[0]`;
+
+const mediaInfo = await sanityClient.fetch(getMediaInfoQuery);
+---
+
+<Layout>
+  <section class="container mx-auto py-12 px-4">
+    <div class="flex flex-col md:flex-row items-center justify-between mb-12">
+      <div class="md:w-1/2">
+        <h1 class="text-4xl font-bold mb-4">Контакты</h1>
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-2xl font-semibold mb-2">Телефоны</h3>
+            <ul class="list-none space-y-2">
+              {
+                mediaInfo.phoneNumbers.map((phone) => (
+                  <li class="flex items-center">
+                    <span class="font-semibold">{phone.description}:</span>
+                    <span class="ml-2">{phone.number}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-2">Электронная почта</h3>
+            <p class="text-lg">{mediaInfo.email}</p>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-2">Юридический адрес</h3>
+            <p class="text-lg">{mediaInfo.legalAddress}</p>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-2">Фактический адрес</h3>
+            <p class="text-lg">{mediaInfo.addressText}</p>
+          </div>
+        </div>
+      </div>
+      <div class="md:w-1/2">
+        <img
+          src={mediaInfo.image.asset.url}
+          alt="Изображение"
+          class="rounded-lg shadow-lg"
+        />
+      </div>
+    </div>
+  </section>
+</Layout>

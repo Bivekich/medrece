@@ -25,16 +25,19 @@ const schoolInfo = await sanityClient.fetch(query);
   <!-- Блок с изображением -->
   <div class="relative w-full md:w-1/2">
     <img
-      src={schoolInfo?.image?.asset?.url || '/images/placeholder.jpg'}
-      alt={schoolInfo?.title || 'О школе'}
+      src={schoolInfo?.image?.asset?.url || "/images/placeholder.jpg"}
+      alt={schoolInfo?.title || "О школе"}
       class="w-full h-full object-cover rounded-lg"
     />
   </div>
 
   <!-- Текстовый блок справа -->
   <div class="w-full md:w-1/2 flex flex-col justify-center">
-    <h2 class="text-6xl text-[#000C5F] font-bold mb-4" style="font-family: 'Days One', sans-serif;">
-      {schoolInfo?.title || 'О Медресе'}
+    <h2
+      class="text-6xl text-[#000C5F] font-bold mb-4"
+      style="font-family: 'Days One', sans-serif;"
+    >
+      {schoolInfo?.title || "О Медресе"}
     </h2>
     <p class="text-base font-medium font-[Geologica] mt-4">
       {schoolInfo?.paragraph1}

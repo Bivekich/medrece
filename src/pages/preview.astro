@@ -1,51 +1,67 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const fileUrl = Astro.url.searchParams.get('fileUrl');
-const title = Astro.url.searchParams.get('title');
-const documentType = Astro.url.searchParams.get('documentType');
-const files = Astro.url.searchParams.get('files') ? JSON.parse(Astro.url.searchParams.get('files')) : [];
-const content = Astro.url.searchParams.get('content');
+const fileUrl = Astro.url.searchParams.get("fileUrl");
+const title = Astro.url.searchParams.get("title");
+const documentType = Astro.url.searchParams.get("documentType");
+const files = Astro.url.searchParams.get("files")
+  ? JSON.parse(Astro.url.searchParams.get("files"))
+  : [];
+const content = Astro.url.searchParams.get("content");
 ---
 
 <Layout>
   <div class="p-6 font-[Geologica]">
     <h1 class="text-2xl font-bold mb-4">{title}</h1>
-    
-    {documentType === 'file' && fileUrl && (
-      <>
-        <iframe src={fileUrl} class="w-full h-screen border-2 border-gray-300" title={title}></iframe>
-        <a href={fileUrl} download class="mt-4 inline-block text-blue-600 hover:underline">
-          Скачать файл
-        </a>
-      </>
-    )}
-    
-    {documentType === 'fileList' && files.length > 0 && (
-      <ul class="space-y-2">
-        {files.map((file) => (
-          <li>
-            {file.fileUrl && (
-              <>
-                <h2 class="font-[Geologica] text-2xl">{file.title}</h2>
-                <a
-                  href={file.fileUrl}
-                  download
-                  class="text-blue-600 hover:underline"
-                >
-                  ({file.fileName})
-                </a>
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
-    )}
-    
-    {documentType === 'text' && (
-      <div class="text-gray-800">
-        <p>{content}</p>
-      </div>
-    )}
-  </div>  
+
+    {
+      documentType === "file" && fileUrl && (
+        <>
+          <iframe
+            src={fileUrl}
+            class="w-full h-screen border-2 border-gray-300"
+            title={title}
+          />
+          <a
+            href={fileUrl}
+            download
+            class="mt-4 inline-block text-blue-600 hover:underline"
+          >
+            Скачать файл
+          </a>
+        </>
+      )
+    }
+
+    {
+      documentType === "fileList" && files.length > 0 && (
+        <ul class="space-y-2">
+          {files.map((file) => (
+            <li>
+              {file.fileUrl && (
+                <>
+                  <h2 class="font-[Geologica] text-2xl">{file.title}</h2>
+                  <a
+                    href={file.fileUrl}
+                    download
+                    class="text-blue-600 hover:underline"
+                  >
+                    ({file.fileName})
+                  </a>
+                </>
+              )}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    {
+      documentType === "text" && (
+        <div class="text-gray-800">
+          <p>{content}</p>
+        </div>
+      )
+    }
+  </div>
 </Layout>
