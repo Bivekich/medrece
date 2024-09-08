@@ -1,5 +1,7 @@
 /* styles.css */
-
+* {
+  box-sizing: border-box;
+}
 /* Увеличенный шрифт для версии для слабовидящих */
 .increase-font-size {
   font-size: 1.05em; /* Увеличивает шрифт на 5% */
@@ -7,4 +9,16 @@
 
 body.increase-font-size * {
   font-size: 1.05em; /* Увеличивает шрифт на 5% */
+}
+
+.main_container {
+  margin: auto;
+  background-color: white;
+  max-width: 1280px;
+}
+
+.background {
+  background: url("/images/background.png");
+  /* background-size: 100% 100%; */
+  background-repeat: repeat;
 }

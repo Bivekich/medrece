@@ -30,10 +30,14 @@ import Footer from "../components/Footer.astro";
     </style>
   </head>
   <body>
-    <Header />
-    <main>
-      <slot />
-    </main>
-    <Footer />
+    <div class="background">
+      <div class="main_container">
+        <Header />
+        <main>
+          <slot />
+        </main>
+        <Footer />
+      </div>
+    </div>
   </body>
 </html>

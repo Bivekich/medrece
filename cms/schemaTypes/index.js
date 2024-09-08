@@ -12,6 +12,8 @@ import schoolInfo from './schoolInfo'
 import student from './student'
 import successBlock from './successBlock'
 import teacher from './teacher'
+import coatsOfArms from './coatsOfArms'
+import quote from './quote'
 
 export const schemaTypes = [
   banner,
@@ -28,4 +30,6 @@ export const schemaTypes = [
   dumKchr,
   mediaInfo,
   footerOrganizationInfo,
+  coatsOfArms,
+  quote,
 ]

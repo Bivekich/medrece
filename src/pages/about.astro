@@ -9,13 +9,13 @@ const getSuccessBlocksQuery = `*[_type == "successBlock"]{
 }`;
 
 const getDirectorInfoQuery = `*[_type == "directorInfo"]{
-  photo { asset-> { url } },
+  "imageUrl": photo.asset->url,
   fullName,
   description
 }[0]`;
 
 const getTeachersQuery = `*[_type == "teacher"]{
-  photo { asset-> { url } },
+  "imageUrl": photo.asset->url,
   fullName,
   position,
   date,
@@ -25,6 +25,8 @@ const getTeachersQuery = `*[_type == "teacher"]{
 const successBlocks = await sanityClient.fetch(getSuccessBlocksQuery);
 const director = await sanityClient.fetch(getDirectorInfoQuery);
 const teachers = await sanityClient.fetch(getTeachersQuery);
+
+console.log(teachers);
 ---
 
 <Layout>
@@ -62,7 +64,7 @@ const teachers = await sanityClient.fetch(getTeachersQuery);
     <div class="flex flex-col md:flex-row items-center md:items-start mb-16">
       <div class="w-full md:w-1/2 mb-4 md:mb-0">
         <img
-          src={director.photo.asset.url}
+          src={director.imageUrl}
           alt="Директор"
           class="rounded-lg shadow-lg w-full h-auto"
         />
@@ -88,7 +90,7 @@ const teachers = await sanityClient.fetch(getTeachersQuery);
         teachers.map((teacher) => (
           <div class="bg-[#000C5F] p-4 md:p-6 rounded-lg shadow-lg">
             <img
-              src={teacher.photo.asset.url}
+              src={teacher.imageUrl}
               alt={teacher.fullName}
               class="w-full h-120 object-cover rounded-md"
             />
