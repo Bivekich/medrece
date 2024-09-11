@@ -52,7 +52,7 @@ const quote = await sanityClient.fetch(quoteQuery);
 
 <div class="flex flex-col md:flex-row items-stretch gap-8 p-6 font-[Geologica]">
   <!-- Левый блок -->
-  <div class="w-full md:w-1/3 p-6 rounded-lg shadow-lg relative">
+  <div class="w-full md:w-2/3 p-6 rounded-lg shadow-lg relative">
     <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8 p-7">
       {
         newsItems.map((news) => (
@@ -86,9 +86,12 @@ const quote = await sanityClient.fetch(quoteQuery);
 
   <!-- Правый блок -->
   <div
-    class="w-full h-4/5 md:w-2/3 relative rounded-lg overflow-hidden shadow-lg"
+    class="w-full h-4/5 md:w-1/3 relative rounded-lg overflow-hidden shadow-lg"
   >
     <div class="w-full shadow-lg rounded-lg m-5">
+      <center>
+        <h2 class="text-2xl font-bold">Цитата дня</h2>
+      </center>
       <img
         src={quote.imageUrl}
         alt="Фотография"
@@ -110,19 +113,6 @@ const quote = await sanityClient.fetch(quoteQuery);
         );
       })
     }
-    <img
-      src={schoolInfo.image.asset.url}
-      alt="Фотография"
-      class="object-cover w-full h-full"
-    />
-    <div
-      class="absolute bottom-4 right-4 text-white text-xl md:text-3xl font-extrabold bg-black bg-opacity-50 p-4 rounded-lg"
-    >
-      <p>{schoolInfo.quote}</p>
-      <p class="text-sm md:text-lg font-normal mt-2">
-        {schoolInfo.author}
-      </p>
-    </div>
   </div>
 </div>
 

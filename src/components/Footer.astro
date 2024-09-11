@@ -6,6 +6,8 @@ const organizationInfoQuery = `*[_type == "footerOrganizationInfo"][0]{
 }`;
 
 const footerOrganizationInfo = await sanityClient.fetch(organizationInfoQuery);
+
+const { contact } = Astro.props;
 ---
 
 <footer class="bg-[#000C5F] text-white py-8">
@@ -49,15 +51,15 @@ const footerOrganizationInfo = await sanityClient.fetch(organizationInfoQuery);
     <div class="flex flex-col lg:w-1/3">
       <div class="flex items-center mb-4">
         <img class="mr-2" src="/icons/time.svg" alt="Время работы" />
-        <span>ПН-ПТ: 09:00 - 17:00</span>
+        <span>{contact.timetable}</span>
       </div>
       <div class="flex items-center mb-4">
         <img class="mr-2" src="/icons/phone.svg" alt="Номер телефона" />
-        <span>+7 (878) 228-42-36</span>
+        <span>{contact.phoneNumber}</span>
       </div>
       <div class="flex items-center mb-4">
         <img class="mr-2" src="/icons/mail.svg" alt="Почта" />
-        <span>medrese09@mail.ru</span>
+        <span>{contact.mail}</span>
       </div>
     </div>
 

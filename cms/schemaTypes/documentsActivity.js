@@ -1,6 +1,6 @@
 export default {
-  name: 'schoolDocument',
-  title: 'Школьные документы',
+  name: 'documentsActivity',
+  title: 'Документы Деятельность',
   type: 'document',
   fields: [
     {
@@ -21,17 +21,11 @@ export default {
       type: 'string',
       options: {
         list: [
-          {title: 'Текст + Файл', value: 'file'},
-          {title: 'Текст + Список файлов', value: 'fileList'},
+          {title: 'Файл', value: 'file'},
+          {title: 'Список файлов', value: 'fileList'},
           {title: 'Текст', value: 'text'},
         ],
       },
-    },
-    {
-      name: 'content',
-      title: 'Текст',
-      type: 'text',
-      hidden: ({parent}) => !parent.documentType,
     },
     {
       name: 'file',
@@ -69,6 +63,12 @@ export default {
           ],
         },
       ],
+    },
+    {
+      name: 'content',
+      title: 'Текстовое содержимое',
+      type: 'text',
+      hidden: ({parent}) => parent.documentType !== 'text',
     },
   ],
 }

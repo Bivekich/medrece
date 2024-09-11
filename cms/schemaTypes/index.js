@@ -14,9 +14,16 @@ import successBlock from './successBlock'
 import teacher from './teacher'
 import coatsOfArms from './coatsOfArms'
 import quote from './quote'
+import contacts from './contacts'
+import aboutusheader from './aboutusheader'
+import documentsAbiturient from './documentsAbiturient'
+import documentsActivity from './documentsActivity'
+import documentsTimetable from './documentsTimetable'
 
 export const schemaTypes = [
   banner,
+  contacts,
+  aboutusheader,
   schoolInfo,
   schoolDocuent,
   abiturient,
@@ -32,4 +39,7 @@ export const schemaTypes = [
   footerOrganizationInfo,
   coatsOfArms,
   quote,
+  documentsAbiturient,
+  documentsActivity,
+  documentsTimetable,
 ]

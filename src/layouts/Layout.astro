@@ -1,6 +1,14 @@
 ---
+import { sanityClient } from "sanity:client";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+const getContactQuery = `*[_type == "contacts"][0]{
+  timetable,
+  phoneNumber,
+  mail
+}`;
+const contact = await sanityClient.fetch(getContactQuery);
 ---
 
 <html lang="ru">
@@ -32,11 +40,11 @@ import Footer from "../components/Footer.astro";
   <body>
     <div class="background">
       <div class="main_container">
-        <Header />
+        <Header number={contact.phoneNumber} />
         <main>
           <slot />
         </main>
-        <Footer />
+        <Footer contact={contact} />
       </div>
     </div>
   </body>

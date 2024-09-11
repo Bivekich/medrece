@@ -1,3 +1,7 @@
+---
+const { number } = Astro.props;
+---
+
 <header class="bg-[#000C5F] text-white font-[Geologica]">
   <div class="max-w-screen-xl mx-auto flex items-center justify-between p-4">
     <!-- Лого и название -->
@@ -33,7 +37,7 @@
     <!-- Телефон, иконки и кнопка -->
     <div class="hidden lg:flex flex-col items-center space-y-2">
       <div class="flex items-center space-x-4">
-        <span>+7 (878) 228-42-36</span>
+        <span>{number}</span>
         <div class="flex space-x-2">
           <a
             href="https://t.me/medrese09"
