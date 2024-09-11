@@ -112,13 +112,6 @@ const documentsTimetable = await sanityClient.fetch(getDocumentsTimetableQuery);
                     href={`/preview?fileUrl=${encodeURIComponent(doc.fileUrl || "")}&title=${encodeURIComponent(doc.title)}&documentType=${encodeURIComponent(doc.documentType)}&files=${encodeURIComponent(JSON.stringify(doc.files || []))}&content=${encodeURIComponent(doc.content || "")}`}
                     class="flex items-center text-blue-600 hover:underline"
                   >
-                    <span class="material-icons mr-2">
-                      {doc.documentType === "file"
-                        ? "insert_drive_file"
-                        : doc.documentType === "fileList"
-                          ? "folder"
-                          : "description"}
-                    </span>
                     {doc.title}
                   </a>
                 </li>
@@ -176,13 +169,6 @@ const documentsTimetable = await sanityClient.fetch(getDocumentsTimetableQuery);
                     href={`/preview?fileUrl=${encodeURIComponent(doc.fileUrl || "")}&title=${encodeURIComponent(doc.title)}&documentType=${encodeURIComponent(doc.documentType)}&files=${encodeURIComponent(JSON.stringify(doc.files || []))}&content=${encodeURIComponent(doc.content || "")}`}
                     class="flex items-center text-blue-600 hover:underline"
                   >
-                    <span class="material-icons mr-2">
-                      {doc.documentType === "file"
-                        ? "insert_drive_file"
-                        : doc.documentType === "fileList"
-                          ? "folder"
-                          : "description"}
-                    </span>
                     {doc.title}
                   </a>
                 </li>
@@ -233,13 +219,6 @@ const documentsTimetable = await sanityClient.fetch(getDocumentsTimetableQuery);
                     href={`/preview?fileUrl=${encodeURIComponent(doc.fileUrl || "")}&title=${encodeURIComponent(doc.title)}&documentType=${encodeURIComponent(doc.documentType)}&files=${encodeURIComponent(JSON.stringify(doc.files || []))}&content=${encodeURIComponent(doc.content || "")}`}
                     class="flex items-center text-blue-600 hover:underline"
                   >
-                    <span class="material-icons mr-2">
-                      {doc.documentType === "file"
-                        ? "insert_drive_file"
-                        : doc.documentType === "fileList"
-                          ? "folder"
-                          : "description"}
-                    </span>
                     {doc.title}
                   </a>
                 </li>
@@ -289,13 +268,6 @@ const documentsTimetable = await sanityClient.fetch(getDocumentsTimetableQuery);
                     href={`/preview?fileUrl=${encodeURIComponent(doc.fileUrl || "")}&title=${encodeURIComponent(doc.title)}&documentType=${encodeURIComponent(doc.documentType)}&files=${encodeURIComponent(JSON.stringify(doc.files || []))}&content=${encodeURIComponent(doc.content || "")}`}
                     class="flex items-center text-blue-600 hover:underline"
                   >
-                    <span class="material-icons mr-2">
-                      {doc.documentType === "file"
-                        ? "insert_drive_file"
-                        : doc.documentType === "fileList"
-                          ? "folder"
-                          : "description"}
-                    </span>
                     {doc.title}
                   </a>
                 </li>
