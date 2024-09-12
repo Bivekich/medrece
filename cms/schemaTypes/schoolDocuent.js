@@ -70,5 +70,22 @@ export default {
         },
       ],
     },
+    {
+      name: 'paragraphs',
+      title: 'Параграфы',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'paragraph',
+              title: 'Параграф',
+              type: 'text',
+            },
+          ],
+        },
+      ],
+    },
   ],
 }

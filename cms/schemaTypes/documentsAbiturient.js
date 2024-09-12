@@ -70,5 +70,22 @@ export default {
       type: 'text',
       hidden: ({parent}) => parent.documentType !== 'text',
     },
+    {
+      name: 'paragraphs',
+      title: 'Параграфы',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'paragraph',
+              title: 'Параграф',
+              type: 'text',
+            },
+          ],
+        },
+      ],
+    },
   ],
 }

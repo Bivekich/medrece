@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { sanityClient } from "sanity:client";
 
 const fileUrl = Astro.url.searchParams.get("fileUrl");
 const title = Astro.url.searchParams.get("title");
@@ -8,6 +9,12 @@ const files = Astro.url.searchParams.get("files")
   ? JSON.parse(Astro.url.searchParams.get("files"))
   : [];
 const content = Astro.url.searchParams.get("content");
+
+const id = Astro.url.searchParams.get("id");
+const getParagraphs = `*[_id == "${id}"][0] {
+paragraphs
+}`;
+const paragraphs = await sanityClient.fetch(getParagraphs);
 ---
 
 <Layout>
@@ -46,7 +53,14 @@ const content = Astro.url.searchParams.get("content");
             <li>
               {file.fileUrl && (
                 <>
-                  <h2 class="font-[Geologica] text-2xl">{file.title}</h2>
+                  {/* <h2 class="font-[Geologica] text-2xl">
+                    <PortableText value={file.title} />
+                  </h2> */}
+                  <h2 class="font-[Geologica] text-2xl">
+                    {file.title.length > 50
+                      ? `${file.title.substr(0, 50)}...`
+                      : file.title}
+                  </h2>
                   <a
                     href={file.fileUrl}
                     download
@@ -55,6 +69,21 @@ const content = Astro.url.searchParams.get("content");
                   >
                     ({file.fileName})
                   </a>
+                </>
+              )}
+            </li>
+          ))}
+        </ul>
+      )
+    },
+    {
+      paragraphs.paragraphs && (
+        <ul class="space-y-2">
+          {paragraphs.paragraphs.map((paragraph) => (
+            <li>
+              {paragraph.paragraph && (
+                <>
+                  <p>{paragraph.paragraph}</p>
                 </>
               )}
             </li>
