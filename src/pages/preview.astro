@@ -11,10 +11,10 @@ const files = Astro.url.searchParams.get("files")
 const content = Astro.url.searchParams.get("content");
 
 const id = Astro.url.searchParams.get("id");
-const getParagraphs = `*[_id == "${id}"][0] {
-paragraphs
-}`;
-const paragraphs = await sanityClient.fetch(getParagraphs);
+// const getParagraphs = `*[_id == "${id}"][0] {
+// paragraphs
+// }`;
+// const paragraphs = await sanityClient.fetch(getParagraphs);
 ---
 
 <Layout>
