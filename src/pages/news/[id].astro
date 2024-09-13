@@ -38,7 +38,17 @@ const newsItem = await sanityClient.fetch(query, { id });
         )
       }
       <div class="text-lg text-gray-700 mb-6">
-        <p>{newsItem.content}</p>
+        <!-- <p>{newsItem.content}</p> -->
+        <p>
+          {
+            newsItem.content.split("\n").map((line, i) => (
+              <>
+                {line}
+                <br />
+              </>
+            ))
+          }
+        </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

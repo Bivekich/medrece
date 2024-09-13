@@ -1,6 +1,6 @@
 export default {
   name: 'schoolDocument',
-  title: 'Школьные документы',
+  title: 'Сведения об организации',
   type: 'document',
   fields: [
     {
