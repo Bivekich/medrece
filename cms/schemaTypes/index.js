@@ -23,6 +23,7 @@ import documentsTimetable from './documentsTimetable'
 export const schemaTypes = [
   banner,
   contacts,
+  mediaInfo,
   aboutusheader,
   schoolInfo,
   schoolDocuent,
@@ -35,7 +36,6 @@ export const schemaTypes = [
   directorInfo,
   teacher,
   dumKchr,
-  mediaInfo,
   footerOrganizationInfo,
   coatsOfArms,
   quote,

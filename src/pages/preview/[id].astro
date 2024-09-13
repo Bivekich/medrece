@@ -4,7 +4,18 @@ import { sanityClient } from "sanity:client";
 
 const { id } = Astro.params;
 
-const getItem = `*[_id == "${id}"][0]`;
+const getItem = `*[_id == "${id}"][0]{
+  "fileUrl": file.asset->url,
+  title,
+  documentType,
+  files[]{
+    ..., 
+    "url": file.asset->url // Fix: properly query the file's URL
+  },
+  content,
+  paragraphs
+}`;
+// const getItem = `*[_id == "${id}"][0]`;
 const item = await sanityClient.fetch(getItem);
 
 const fileUrl = item.fileUrl;
@@ -13,7 +24,7 @@ const documentType = item.documentType;
 const files = item.files ? item.files : [];
 const content = item.content;
 
-console.log(item.files);
+console.log(item);
 const paragraphs = item.paragraphs;
 ---
 
@@ -56,9 +67,12 @@ const paragraphs = item.paragraphs;
                   {/* <h2 class="font-[Geologica] text-2xl">
                       <PortableText value={file.title} />
                     </h2> */}
-                  <h2 class="font-[Geologica] text-2xl">{file.title}</h2>
+                  <h2 class="font-[Geologica] text-2xl">
+                    {file.title ? file.title : ""}
+                  </h2>
                   <a
                     download
+                    href={file.url}
                     target="_blank"
                     class="text-blue-600 hover:underline"
                   >

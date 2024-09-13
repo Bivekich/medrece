@@ -1,6 +1,6 @@
 export default {
   name: 'mediaInfo',
-  title: 'Для Сми',
+  title: 'Контакты',
   type: 'document',
   fields: [
     {
