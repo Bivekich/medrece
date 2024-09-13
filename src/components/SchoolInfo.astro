@@ -92,12 +92,17 @@ const quote = await sanityClient.fetch(quoteQuery);
       <center>
         <h2 class="text-2xl font-bold">Цитата дня</h2>
       </center>
-      <img
-        src={quote.imageUrl}
-        alt="Фотография"
-        class="max-w-[300px] p-5 m-5"
-      />
-      <p class="p-5">
+      <div
+        class="max-w-[300px] p-5 m-5 h-[400px]"
+        style={{
+          backgroundImage: `url(${quote.imageUrl})`,
+          backgroundSize: "cover", // Ensures the image covers the entire div
+          backgroundPosition: "center", // Centers the image in the div
+          backgroundRepeat: "no-repeat", // Prevents the image from repeating
+        }}
+      >
+      </div>
+      <p class="p-5 text-center">
         {quote.title}
       </p>
     </div>

@@ -248,7 +248,7 @@ const documentsTimetable = await sanityClient.fetch(getDocumentsTimetableQuery);
             documents.map((doc) => (
               <li class="list-none">
                 <a
-                  href={`/preview?id=${encodeURIComponent(doc._id || "")}&fileUrl=${encodeURIComponent(doc.fileUrl || "")}&title=${encodeURIComponent(doc.title)}&documentType=${encodeURIComponent(doc.documentType)}&files=${encodeURIComponent(JSON.stringify(doc.files || []))}&content=${encodeURIComponent(doc.content || "")}`}
+                  href={`/preview/${encodeURIComponent(doc._id || "")}`}
                   class="flex items-center text-blue-600 hover:underline"
                 >
                   {doc.title}
@@ -305,7 +305,7 @@ const documentsTimetable = await sanityClient.fetch(getDocumentsTimetableQuery);
             documentsAbiturient.map((doc) => (
               <li class="list-none">
                 <a
-                  href={`/preview?id=${encodeURIComponent(doc._id || "")}&fileUrl=${encodeURIComponent(doc.fileUrl || "")}&title=${encodeURIComponent(doc.title)}&documentType=${encodeURIComponent(doc.documentType)}&files=${encodeURIComponent(JSON.stringify(doc.files || []))}&content=${encodeURIComponent(doc.content || "")}`}
+                  href={`/preview/${encodeURIComponent(doc._id || "")}`}
                   class="flex items-center text-blue-600 hover:underline"
                 >
                   {doc.title}
@@ -355,7 +355,7 @@ const documentsTimetable = await sanityClient.fetch(getDocumentsTimetableQuery);
             documentsTimetable.map((doc) => (
               <li class="list-none">
                 <a
-                  href={`/preview?id=${encodeURIComponent(doc._id || "")}&fileUrl=${encodeURIComponent(doc.fileUrl || "")}&title=${encodeURIComponent(doc.title)}&documentType=${encodeURIComponent(doc.documentType)}&files=${encodeURIComponent(JSON.stringify(doc.files || []))}&content=${encodeURIComponent(doc.content || "")}`}
+                  href={`/preview/${encodeURIComponent(doc._id || "")}`}
                   class="flex items-center text-blue-600 hover:underline"
                 >
                   {doc.title}
@@ -404,7 +404,7 @@ const documentsTimetable = await sanityClient.fetch(getDocumentsTimetableQuery);
             documentsActivity.map((doc) => (
               <li class="list-none">
                 <a
-                  href={`/preview?id=${encodeURIComponent(doc._id || "")}&fileUrl=${encodeURIComponent(doc.fileUrl || "")}&title=${encodeURIComponent(doc.title)}&documentType=${encodeURIComponent(doc.documentType)}&files=${encodeURIComponent(JSON.stringify(doc.files || []))}&content=${encodeURIComponent(doc.content || "")}`}
+                  href={`/preview/${encodeURIComponent(doc._id || "")}`}
                   class="flex items-center text-blue-600 hover:underline"
                 >
                   {doc.title}
