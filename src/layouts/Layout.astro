@@ -41,7 +41,7 @@ const contact = await sanityClient.fetch(getContactQuery);
     <div class="background">
       <div class="main_container">
         <Header number={contact.phoneNumber} />
-        <main>
+        <main style="min-height: 40vh;">
           <slot />
         </main>
         <Footer contact={contact} />

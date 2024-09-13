@@ -13,6 +13,7 @@ const documentType = item.documentType;
 const files = item.files ? item.files : [];
 const content = item.content;
 
+console.log(item.files);
 const paragraphs = item.paragraphs;
 ---
 
@@ -50,18 +51,19 @@ const paragraphs = item.paragraphs;
         <ul class="space-y-2">
           {files.map((file) => (
             <li>
-              {file.fileUrl && (
+              {file.file && (
                 <>
                   {/* <h2 class="font-[Geologica] text-2xl">
                       <PortableText value={file.title} />
                     </h2> */}
                   <h2 class="font-[Geologica] text-2xl">
-                    {file.title.length > 50
-                      ? `${file.title.substr(0, 50)}...`
-                      : file.title}
+                    {file.title
+                      ? file.title.length > 50
+                        ? `${file.title.substr(0, 50)}...`
+                        : file.title
+                      : file.fileName}
                   </h2>
                   <a
-                    href={file.fileUrl}
                     download
                     target="_blank"
                     class="text-blue-600 hover:underline"
