@@ -56,13 +56,7 @@ const paragraphs = item.paragraphs;
                   {/* <h2 class="font-[Geologica] text-2xl">
                       <PortableText value={file.title} />
                     </h2> */}
-                  <h2 class="font-[Geologica] text-2xl">
-                    {file.title
-                      ? file.title.length > 50
-                        ? `${file.title.substr(0, 50)}...`
-                        : file.title
-                      : file.fileName}
-                  </h2>
+                  <h2 class="font-[Geologica] text-2xl">{file.title}</h2>
                   <a
                     download
                     target="_blank"
