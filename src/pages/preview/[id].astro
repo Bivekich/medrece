@@ -69,11 +69,17 @@ const paragraphs = item.paragraphs;
                     </h2> */}
                   <h2 class="font-[Geologica] text-2xl">
                     {file.title ? file.title : ""}
+                    {/* {file.url.split(".").at(-1)} */}
                   </h2>
+                  {/* {...(file.url.split(".").at(-1) !== "pdf"
+                    ? { download: "" }
+                    : {})} */}
                   <a
-                    download
                     href={file.url}
                     target="_blank"
+                    download={
+                      file.url.split(".").at(-1) !== "pdf" ? true : undefined
+                    }
                     class="text-blue-600 hover:underline"
                   >
                     ({file.fileName})
