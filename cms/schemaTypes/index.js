@@ -19,6 +19,7 @@ import aboutusheader from './aboutusheader'
 import documentsAbiturient from './documentsAbiturient'
 import documentsActivity from './documentsActivity'
 import documentsTimetable from './documentsTimetable'
+import ayat from './ayat'
 
 export const schemaTypes = [
   banner,
@@ -39,6 +40,7 @@ export const schemaTypes = [
   footerOrganizationInfo,
   coatsOfArms,
   quote,
+  ayat,
   documentsAbiturient,
   documentsActivity,
   documentsTimetable,

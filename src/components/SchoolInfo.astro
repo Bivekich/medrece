@@ -43,11 +43,16 @@ const quoteQuery = `*[_type == "quote"][0]{
   "imageUrl": image.asset->url,
   title,
 }`;
+const ayatQuery = `*[_type == "ayat"][0]{
+  "imageUrl": image.asset->url,
+  title,
+}`;
 const documents = await sanityClient.fetch(getDocumentsQuery);
 const schoolInfo = await sanityClient.fetch(query);
 const newsItems = await sanityClient.fetch(newsQuery);
 const coatsOfArms = await sanityClient.fetch(coatsOfArmsQuery);
 const quote = await sanityClient.fetch(quoteQuery);
+const ayat = await sanityClient.fetch(ayatQuery);
 ---
 
 <div class="flex flex-col md:flex-row items-stretch gap-8 p-6 font-[Geologica]">
@@ -104,6 +109,24 @@ const quote = await sanityClient.fetch(quoteQuery);
       </div>
       <p class="p-5 text-center">
         {quote.title}
+      </p>
+    </div>
+    <div class="w-full shadow-lg rounded-lg m-5">
+      <center>
+        <h2 class="text-2xl font-bold">Аят дня</h2>
+      </center>
+      <div
+        class="max-w-[300px] p-5 m-5 h-[400px]"
+        style={{
+          backgroundImage: `url(${ayat.imageUrl})`,
+          backgroundSize: "cover", // Ensures the image covers the entire div
+          backgroundPosition: "center", // Centers the image in the div
+          backgroundRepeat: "no-repeat", // Prevents the image from repeating
+        }}
+      >
+      </div>
+      <p class="p-5 text-center">
+        {ayat.title}
       </p>
     </div>
     {
