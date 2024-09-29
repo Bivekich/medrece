@@ -95,7 +95,7 @@ const ayat = await sanityClient.fetch(ayatQuery);
   >
     <div class="w-full shadow-lg rounded-lg m-5">
       <center>
-        <h2 class="text-2xl font-bold">Цитата дня</h2>
+        <h2 class="text-2xl font-bold">{quote.title}</h2>
       </center>
       <div
         class="max-w-[300px] p-5 m-5 h-[400px]"
@@ -108,12 +108,12 @@ const ayat = await sanityClient.fetch(ayatQuery);
       >
       </div>
       <p class="p-5 text-center">
-        {quote.title}
+        {quote.quote}
       </p>
     </div>
     <div class="w-full shadow-lg rounded-lg m-5">
       <center>
-        <h2 class="text-2xl font-bold">Аят дня</h2>
+        <h2 class="text-2xl font-bold">{ayat.title}</h2>
       </center>
       <div
         class="max-w-[300px] p-5 m-5 h-[400px]"
@@ -126,7 +126,7 @@ const ayat = await sanityClient.fetch(ayatQuery);
       >
       </div>
       <p class="p-5 text-center">
-        {ayat.title}
+        {ayat.quote}
       </p>
     </div>
     {

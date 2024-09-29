@@ -6,7 +6,7 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Цитата',
+      title: 'Заголовок',
     },
     {
       name: 'image',
@@ -15,6 +15,11 @@ export default {
       options: {
         hotspot: true,
       },
+    },
+    {
+      name: 'quote',
+      type: 'string',
+      title: 'Цитата',
     },
   ],
 }
