@@ -42,10 +42,12 @@ const coatsOfArmsQuery = `*[_type == "coatsOfArms"] {
 const quoteQuery = `*[_type == "quote"][0]{
   "imageUrl": image.asset->url,
   title,
+  quote
 }`;
 const ayatQuery = `*[_type == "ayat"][0]{
   "imageUrl": image.asset->url,
   title,
+  quote
 }`;
 const documents = await sanityClient.fetch(getDocumentsQuery);
 const schoolInfo = await sanityClient.fetch(query);
