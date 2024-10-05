@@ -63,7 +63,7 @@ const ayat = await sanityClient.fetch(ayatQuery);
     <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8 p-7">
       {
         newsItems.map((news) => (
-          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden h-fit">
             <a href={`/news/${news._id}`}>
               {news.imageUrl && (
                 <img
